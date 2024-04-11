@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Service Ticket List</title>
+  <!--  <link rel="stylesheet" href="styles.css">-->
+  <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <!-- DataTables  & Plugins -->
+  <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+  <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
+  <script th:src="@{/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
+  <script th:src="@{/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
+  <script th:src="@{/customjs/ServiceTicket.js}"></script>
+
+</head>
+<style>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+</style>
+<body>
+
+<a href="/"><button>Home page</button></a>
+<div class="container">
+  <h2> Vehicle Registraion Details</h2>
+  <table id="VehicleRegistraionDetailsTable" class="display" style="width:100%">
+    <thead>
+    <tr>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+</body>
+
+
+
+
+</html>
+
+

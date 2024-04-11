@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMV Service Tracker Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      /* Add background image */
+     background-image: url('C:\Spring Boot\PMV_Application\src\main\resources\static\Image\ifthar.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Added opacity for better readability */
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      perspective: 1000px;
+      text-align: center; /* Align text in the center */
+    }
+
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>PMV Service Tracker Dashboard</h1>
+
+  <!-- Dashboard Buttons -->
+  <div class="dashboard">
+    <button class="button" onclick="window.location.href='AddVehicle'">Add New Vehicle</button>
+    <button class="button" onclick="window.location.href='ServiceTicket'">Service Engineer Interface</button>
+    <button class="button" onclick="window.location.href='DriverServiceTickets'">Driver Interface</button>
+    <button class="button" onclick="window.location.href='ManagerInterface'">PMV Manager View</button>
+  </div>
+<!--  <img th:src="@{/Image/ifthar.jpeg}"/>-->
+</div>
+</body>
+</html>
