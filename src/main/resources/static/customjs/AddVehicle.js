@@ -116,6 +116,7 @@ if (driverInfo === "") {
         data: jsonData,
         success: function(response) {
             alert(response);
+              window.location.href = 'AddVehicle';
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
@@ -166,6 +167,7 @@ function DeleteVehicle(vehicleid) {
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
+              window.location.href = 'AddVehicle';
         }
     });
 }

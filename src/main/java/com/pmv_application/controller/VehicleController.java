@@ -22,12 +22,12 @@ public class VehicleController {
 
 
     @PostMapping("/addVehicleDetails")
-    public ResponseEntity<String> addNewCar(@RequestBody VehicleDto vehicleDto) {
+    public String addNewCar(@RequestBody VehicleDto vehicleDto) {
         try {
                 vehicleService.SaveVehicle(vehicleDto);
-                return new ResponseEntity<>("Vehicle Added successfully", HttpStatus.CREATED);
+                return "Vehicle Added successfully";
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return e.getMessage();
         }
     }
 

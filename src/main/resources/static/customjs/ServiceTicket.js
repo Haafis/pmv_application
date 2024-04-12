@@ -189,12 +189,13 @@ function submitServiceTicket() {
         data: jsonData,
         success: function(response) {
             alert("Service ticket submitted successfully");
-            window.location.href = 'CreateServiceTicket';
+              window.location.href = 'ServiceTicket';
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
             alert("Error occurred while submitting service ticket");
-            window.location.href = 'CreateServiceTicket';
+            window.location.href = 'ServiceTicket';
+
         }
     });
 }
@@ -236,14 +237,15 @@ function DeleteserviceTicket(id) {
         success: function(serverMessageDto) {
             if (serverMessageDto.successFlag == 1) {
                 alert("Delete successfully");
-                window.location.href = 'CreateServiceTicket';
+              window.location.href = 'ServiceTicket';
             } else {
                 alert("Delete unsuccessful");
-                window.location.href = 'CreateServiceTicket';
+             window.location.href = 'ServiceTicket';
             }
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
+
         }
     });
 }

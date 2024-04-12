@@ -19,14 +19,15 @@ public class ServiceTicketController {
     private ServiceTicketService serviceTicketService;
 
     @PostMapping("/submit")
-    public ResponseEntity<String> createServiceTicket(@RequestBody ServiceTicketDto serviceTicketDto) {
+    public String createServiceTicket(@RequestBody ServiceTicketDto serviceTicketDto) {
         try {
             serviceTicketService.SubmitServiceTicket(serviceTicketDto);
-            return new ResponseEntity<>("Submitted Successfully", HttpStatus.CREATED);
+            return "Submitted Successfully";
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return e.getMessage();
         }
     }
+
     @PostMapping("/getAllServiceTicketDetails")
     public PageList<ServiceTicketDao> pageList(@RequestBody PagingRequest pagingRequest) {
         PageList<ServiceTicketDao> pageList = serviceTicketService.getAllServiceTicketDetails(pagingRequest);

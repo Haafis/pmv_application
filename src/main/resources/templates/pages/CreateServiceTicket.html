@@ -6,10 +6,7 @@
   <!--  <link rel="stylesheet" href="styles.css">-->
   <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-  <!--  <script src="script.js"></script>-->
-  <!--  <script th:src="@{/plugins/datatables.min.js}"></script>-->
-  <!--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
-  <!--  <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>-->
+
   <!-- DataTables  & Plugins -->
   <script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
   <script th:src="@{/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
@@ -91,7 +88,7 @@ button:hover {
     <textarea id="serviceDescription" name="serviceDescription" autocomplete="off" required></textarea>
 
     <label for="serviceCost">Service Cost</label>
-    <input type="text" id="serviceCost" name="serviceCost" autocomplete="off" required>
+    <input type="number" id="serviceCost" name="serviceCost" autocomplete="off" required>
 
     <label for="upcomingServiceDate">Upcoming Service Date</label>
     <input type="date" id="upcomingServiceDate" name="upcomingServiceDate" autocomplete="off"  required>

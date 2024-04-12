@@ -5,7 +5,6 @@ import com.pmv_application.model.dto.*;
 
 
 public interface ServiceTicketService {
-//    public ServerMessageDto SubmitServiceTicket(ServiceTicketDto serviceTicketDto);
 
     public void SubmitServiceTicket(ServiceTicketDto serviceTicketDto);
 
