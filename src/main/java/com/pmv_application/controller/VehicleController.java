@@ -8,8 +8,6 @@ import com.pmv_application.model.dto.VehicleDto;
 import com.pmv_application.repository.VehicleRepository;
 import com.pmv_application.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,7 +29,6 @@ public class VehicleController {
         }
     }
 
-    //   @Secured({"ADMIN"})
     @PostMapping("/getAllvehicleDetails")
     public PageList<VehicleDao> pageList(@RequestBody PagingRequest pagingRequest) {
         PageList<VehicleDao> pageList = vehicleService.getAllVehicleList(pagingRequest);

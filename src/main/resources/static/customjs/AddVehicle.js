@@ -154,7 +154,7 @@ function DeleteVehicle(vehicleid) {
     $.ajax({
         type: "DELETE",
         url: "/deleteVehicleDetailsByID",
-        data: { vehicleid: vehicleid }, // Send as URL-encoded parameters
+        data: { vehicleid: vehicleid },
         success: function(serverMessageDto) {
             if (serverMessageDto.successFlag == 1) {
                 alert("Delete successfully");
@@ -171,4 +171,5 @@ function DeleteVehicle(vehicleid) {
         }
     });
 }
+
 
