@@ -7,6 +7,7 @@ import com.pmv_application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,12 +21,20 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @PostMapping("/SignUp")
-    public String signUp(@RequestBody  UserDto userDto) {
+    public String signUp(@RequestBody UserDto userDto) {
         try {
             String username = userDto.getUsername();
             String password = userDto.getPassword();
             String role = userDto.getRole();
+
+            String encryptedPassword = bCryptPasswordEncoder.encode(password);
+            userDto.setPassword(encryptedPassword);
+
             userService.SaveSignup(userDto);
             return "SignUp Successfully";
         } catch (Exception e) {
@@ -39,23 +48,21 @@ public class UserController {
             String loginUsername = loginDto.getLoginUsername();
             String loginPassword = loginDto.getLoginPassword();
             String loginRole = loginDto.getLoginuserRole();
-            List<Object[]> userNameAndPassword = userRepository.getLoginUsernameAndPassword(loginRole);
+            List<Object[]> userNameAndPassword = userRepository.getLoginUsernameAndPassword(loginRole,loginUsername);
 
             if (!userNameAndPassword.isEmpty()) {
                 Object[] user = userNameAndPassword.get(0);
                 String username = (String) user[0];
-                String password = (String) user[1];
+                String storedPassword = (String) user[1];
                 String role = (String) user[2];
-                if (username.equals(loginUsername) && password.equals(loginPassword)) {
-                    System.out.println("Login SuccessfulL");
+
+                if (bCryptPasswordEncoder.matches(loginPassword, storedPassword)) {
                     return ResponseEntity.ok().body(role);
                 } else {
-                    System.out.println("Incorrect Username or Password.");
                     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect username or password.");
                 }
             } else {
-                System.out.println("No results found.");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No results found.");
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User Not found.");
             }
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
